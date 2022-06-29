@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
+import env from "./env";
 
 mongoose.Promise = global.Promise;
 
 const mongo = (): any => {
-	mongoose.connect("mongodb://localhost:27017/portfolio-social-app", (err) => {
+	mongoose.connect(env.MONGO_URL, (err) => {
 		if (!err) {
 			console.log("🍃 Mongo DB Connected");
 		} else {

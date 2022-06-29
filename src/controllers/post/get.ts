@@ -1,3 +1,4 @@
+import moment from "moment";
 import PostModel from "../../models/PostModel";
 
 export default async (req: any, res: any): Promise<any> => {

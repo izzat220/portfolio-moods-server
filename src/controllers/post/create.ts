@@ -4,17 +4,14 @@ import PostModel from "../../models/PostModel";
 export default async (req: any, res: any): Promise<any> => {
 	let { text, postedBy, mood } = req.body;
 
-	console.log(req.body);
-
 	if (!text || !postedBy || !mood) {
 		return res.status(400).json({ message: "Missing required fields" });
 	}
 
 	text = text.trim();
-	console.log(text.length);
-	if (text.length < 100 || text.length > 500) {
+	if (text.length < 50 || text.length > 500) {
 		return res.status(400).json({
-			message: "Content length should be between 100 and 500 characters",
+			message: "Content length should be between 50 and 500 characters",
 		});
 	}
 
