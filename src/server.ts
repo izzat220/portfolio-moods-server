@@ -22,4 +22,8 @@ app.use("/post", post);
 app.get("/hey", (req, res) => {
 	return res.status(200).json({ success: "it works" });
 });
-app.listen(8080, () => console.log(`🚀 Server running on PORT 8080`));
+
+app.set("port", process.env.PORT || 8080);
+app.listen(app.get("port"), () =>
+	console.log(`🚀 Server running on PORT ${app.get("port")}`)
+);
